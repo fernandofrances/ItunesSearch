@@ -23,7 +23,7 @@ extension DiscographyResult: Decodable {
         switch type {
         case "artist":
             self = try .artist(Artist(from: decoder))
-        case "album":
+        case "collection":
             self = try .album(Album(from: decoder))
         default:
             let context = DecodingError.Context(codingPath: [CodingKeys.wrapperType], debugDescription: "Unknown type: \(type)")
