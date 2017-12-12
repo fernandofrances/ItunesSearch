@@ -17,6 +17,7 @@ class SearchResultsViewController: UITableViewController {
     // MARK: - Properties
     
     private let presenter: SearchResultsPresenter
+    private var results: [Artist] = []
     
     //MARK: - Initialization
     
@@ -33,22 +34,29 @@ class SearchResultsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        presenter.view = self
+        setUpView()
     }
 
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return results.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(SearchCell.height())
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell: SearchCell = tableView.dequeueReusableCell(withIdentifier: SearchCell.identifier(), for: indexPath) as! SearchCell
+        let artist = results[indexPath.row]
+        cell.refresh(artist: artist)
         return cell
     }
 
@@ -57,19 +65,19 @@ class SearchResultsViewController: UITableViewController {
 
 extension SearchResultsViewController {
     func setUpView() {
-        //Register table view cells
+        tableView.register(UINib(nibName: "SearchCell", bundle: nil), forCellReuseIdentifier: SearchCell.identifier())
     }
 }
 
 extension SearchResultsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        print("search: \(searchController.searchBar.text ?? "")")
         presenter.search(with: searchController.searchBar.text ?? "")
     }
 }
 
 extension SearchResultsViewController: SearchView {
     func update(with artists: [Artist]) {
-        
+        results = artists
+        tableView.reloadData()
     }
 }

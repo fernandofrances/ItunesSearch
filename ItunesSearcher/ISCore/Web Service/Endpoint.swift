@@ -55,7 +55,7 @@ private extension Endpoint {
                     "country":"es",
                     "media":"music",
                     "entity":"musicArtist",
-                    "limit":"1"]
+                    "limit":"20"]
         case .discography(let artist):
             return ["term":artist]
         }

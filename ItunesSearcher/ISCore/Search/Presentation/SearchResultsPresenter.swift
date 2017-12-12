@@ -23,7 +23,7 @@ final class SearchResultsPresenter {
 
 extension SearchResultsPresenter {
     func search(with query: String){
-        repository.searchResults(withQuery:query) { (artists: [Artist]) in
+        repository.searchResults(withQuery:query.replacingOccurrences(of: " ", with: "+")) { (artists: [Artist]) in
             self.view?.update(with: artists)
         }
     }
