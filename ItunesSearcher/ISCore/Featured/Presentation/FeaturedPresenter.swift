@@ -9,7 +9,6 @@
 import Foundation
 
 protocol FeaturedView: class {
-    var title: String? { get set }
     
     func setArtistsHeaderTitle(_ title: String)
     func setAlbumsHeaderTitle(_ title: String)
@@ -27,15 +26,14 @@ final class FeaturedPresenter {
     }
     
     func didLoad(){
-        view?.title = NSLocalizedString("Featured", comment: "")
         view?.setAlbumsHeaderTitle(NSLocalizedString("TOP ALBUMS", comment: ""))
         view?.setArtistsHeaderTitle(NSLocalizedString("TOP ARTISTS", comment: ""))
-        
         loadContents()
     }
 }
 
 private extension FeaturedPresenter {
+
     func loadContents() {
         //Call the repository and load featured artists and albums
     }

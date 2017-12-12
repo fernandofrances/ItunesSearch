@@ -15,11 +15,13 @@ class FeaturedViewController: UIViewController {
     // MARK: - Properties
     
     private let presenter: FeaturedPresenter
+    private let searchNavigator: SearchNavigator
     
     // MARK: - Initialization
     
-    init(presenter: FeaturedPresenter){
+    init(presenter: FeaturedPresenter, searchNavigator: SearchNavigator){
         self.presenter = presenter
+        self.searchNavigator = searchNavigator
         super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
     }
     
@@ -32,10 +34,11 @@ class FeaturedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
+        searchNavigator.installSearch(viewController: self)
         presenter.didLoad()
     }
-
 }
+
 
 extension FeaturedViewController: FeaturedView{
     func setArtistsHeaderTitle(_ title: String) {

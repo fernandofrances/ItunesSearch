@@ -10,13 +10,15 @@ import Foundation
 
 final class FeaturedAssembly {
     private let webServiceAssembly: WebServiceAssembly
+    private let searchAssembly: SearchAssembly
     
-    init(webServiceAssembly: WebServiceAssembly){
+    init(webServiceAssembly: WebServiceAssembly, searchAssembly: SearchAssembly){
         self.webServiceAssembly = webServiceAssembly
+        self.searchAssembly = searchAssembly
     }
     
     public func viewController() -> FeaturedViewController {
-        return FeaturedViewController(presenter: presenter())
+        return FeaturedViewController(presenter: presenter(), searchNavigator: searchAssembly.searchNavigator())
     }
     
     func presenter() -> FeaturedPresenter{

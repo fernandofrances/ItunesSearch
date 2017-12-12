@@ -12,6 +12,10 @@
 		E02A1FC11FDFDFCF00D730FB /* FeaturedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FC01FDFDFCF00D730FB /* FeaturedPresenter.swift */; };
 		E02A1FC41FDFDFE100D730FB /* FeaturedAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FC31FDFDFE100D730FB /* FeaturedAssembly.swift */; };
 		E02A1FC71FDFE0BA00D730FB /* FeaturedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FC61FDFE0BA00D730FB /* FeaturedRepository.swift */; };
+		E02A1FCE1FDFE5C300D730FB /* SearchAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FCD1FDFE5C300D730FB /* SearchAssembly.swift */; };
+		E02A1FD01FDFE67000D730FB /* SearchNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FCF1FDFE67000D730FB /* SearchNavigator.swift */; };
+		E02A1FD21FDFE71A00D730FB /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FD11FDFE71A00D730FB /* SearchResultsViewController.swift */; };
+		E02A1FD41FDFE72A00D730FB /* SearchResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FD31FDFE72A00D730FB /* SearchResultsPresenter.swift */; };
 		E0CD566C1FDF113400768E50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CD566B1FDF113400768E50 /* AppDelegate.swift */; };
 		E0CD56731FDF113400768E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0CD56721FDF113400768E50 /* Assets.xcassets */; };
 		E0CD56761FDF113400768E50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0CD56741FDF113400768E50 /* LaunchScreen.storyboard */; };
@@ -30,6 +34,10 @@
 		E02A1FC01FDFDFCF00D730FB /* FeaturedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedPresenter.swift; sourceTree = "<group>"; };
 		E02A1FC31FDFDFE100D730FB /* FeaturedAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedAssembly.swift; sourceTree = "<group>"; };
 		E02A1FC61FDFE0BA00D730FB /* FeaturedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRepository.swift; sourceTree = "<group>"; };
+		E02A1FCD1FDFE5C300D730FB /* SearchAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAssembly.swift; sourceTree = "<group>"; };
+		E02A1FCF1FDFE67000D730FB /* SearchNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNavigator.swift; sourceTree = "<group>"; };
+		E02A1FD11FDFE71A00D730FB /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		E02A1FD31FDFE72A00D730FB /* SearchResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsPresenter.swift; sourceTree = "<group>"; };
 		E0CD56681FDF113400768E50 /* ItunesSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItunesSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0CD566B1FDF113400768E50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0CD56721FDF113400768E50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +97,45 @@
 				E02A1FC61FDFE0BA00D730FB /* FeaturedRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		E02A1FC81FDFE58100D730FB /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		E02A1FC91FDFE58A00D730FB /* Navigators */ = {
+			isa = PBXGroup;
+			children = (
+				E02A1FCF1FDFE67000D730FB /* SearchNavigator.swift */,
+			);
+			path = Navigators;
+			sourceTree = "<group>";
+		};
+		E02A1FCA1FDFE59000D730FB /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				E02A1FCD1FDFE5C300D730FB /* SearchAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		E02A1FCB1FDFE59600D730FB /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E02A1FD11FDFE71A00D730FB /* SearchResultsViewController.swift */,
+				E02A1FD31FDFE72A00D730FB /* SearchResultsPresenter.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E02A1FCC1FDFE5A000D730FB /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		E0CD565F1FDF113400768E50 = {
@@ -162,6 +209,11 @@
 		E0CD56811FDF148700768E50 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				E02A1FCC1FDFE5A000D730FB /* Domain */,
+				E02A1FCB1FDFE59600D730FB /* Presentation */,
+				E02A1FCA1FDFE59000D730FB /* DI */,
+				E02A1FC91FDFE58A00D730FB /* Navigators */,
+				E02A1FC81FDFE58100D730FB /* Repositories */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -242,14 +294,18 @@
 				E0CD566C1FDF113400768E50 /* AppDelegate.swift in Sources */,
 				E0CD56871FDF172000768E50 /* Endpoint.swift in Sources */,
 				E0CD56891FDF172A00768E50 /* WebService.swift in Sources */,
+				E02A1FD21FDFE71A00D730FB /* SearchResultsViewController.swift in Sources */,
 				E02A1FBD1FDFDFB400D730FB /* FeaturedViewController.swift in Sources */,
 				E0CD568B1FDF178300768E50 /* WebServiceAssembly.swift in Sources */,
+				E02A1FD41FDFE72A00D730FB /* SearchResultsPresenter.swift in Sources */,
+				E02A1FCE1FDFE5C300D730FB /* SearchAssembly.swift in Sources */,
 				E02A1FC41FDFDFE100D730FB /* FeaturedAssembly.swift in Sources */,
 				E0CD56831FDF153E00768E50 /* AppAssembly.swift in Sources */,
 				E0CD568D1FDF1C0400768E50 /* Artist.swift in Sources */,
 				E02A1FC11FDFDFCF00D730FB /* FeaturedPresenter.swift in Sources */,
 				E0CD56911FDF1C2000768E50 /* Album.swift in Sources */,
 				E02A1FC71FDFE0BA00D730FB /* FeaturedRepository.swift in Sources */,
+				E02A1FD01FDFE67000D730FB /* SearchNavigator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
