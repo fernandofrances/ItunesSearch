@@ -9,7 +9,10 @@
 import Foundation
 
 struct Album : Decodable {
-    let name: String
-    let releaseYear: Int
-    let thumbnail: String?
+    let wrapperType: String
+    let collectionName: String
+    let releaseDate: Date
+    let artworkUrl60: String
+    let artistName: String
+    let primaryGenreName: String
 }

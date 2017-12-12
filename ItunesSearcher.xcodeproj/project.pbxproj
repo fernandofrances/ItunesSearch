@@ -17,9 +17,11 @@
 		E02A1FD21FDFE71A00D730FB /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FD11FDFE71A00D730FB /* SearchResultsViewController.swift */; };
 		E02A1FD41FDFE72A00D730FB /* SearchResultsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FD31FDFE72A00D730FB /* SearchResultsPresenter.swift */; };
 		E02A1FD61FDFFE2300D730FB /* SearchResultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FD51FDFFE2300D730FB /* SearchResultsRepository.swift */; };
-		E02A1FD81FE000F300D730FB /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FD71FE000F300D730FB /* SearchResult.swift */; };
 		E02A1FDB1FE00CD100D730FB /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FD91FE00CD100D730FB /* SearchCell.swift */; };
 		E02A1FDC1FE00CD100D730FB /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E02A1FDA1FE00CD100D730FB /* SearchCell.xib */; };
+		E02A1FE01FE030A100D730FB /* SearchResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FDF1FE030A100D730FB /* SearchResultPresenter.swift */; };
+		E02A1FE21FE0390D00D730FB /* DiscographyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FE11FE0390D00D730FB /* DiscographyResult.swift */; };
+		E02A1FE41FE0467400D730FB /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A1FE31FE0467400D730FB /* Page.swift */; };
 		E0CD566C1FDF113400768E50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CD566B1FDF113400768E50 /* AppDelegate.swift */; };
 		E0CD56731FDF113400768E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0CD56721FDF113400768E50 /* Assets.xcassets */; };
 		E0CD56761FDF113400768E50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0CD56741FDF113400768E50 /* LaunchScreen.storyboard */; };
@@ -43,9 +45,11 @@
 		E02A1FD11FDFE71A00D730FB /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		E02A1FD31FDFE72A00D730FB /* SearchResultsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsPresenter.swift; sourceTree = "<group>"; };
 		E02A1FD51FDFFE2300D730FB /* SearchResultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsRepository.swift; sourceTree = "<group>"; };
-		E02A1FD71FE000F300D730FB /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		E02A1FD91FE00CD100D730FB /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		E02A1FDA1FE00CD100D730FB /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		E02A1FDF1FE030A100D730FB /* SearchResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultPresenter.swift; sourceTree = "<group>"; };
+		E02A1FE11FE0390D00D730FB /* DiscographyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscographyResult.swift; sourceTree = "<group>"; };
+		E02A1FE31FE0467400D730FB /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		E0CD56681FDF113400768E50 /* ItunesSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItunesSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0CD566B1FDF113400768E50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0CD56721FDF113400768E50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				E02A1FD31FDFE72A00D730FB /* SearchResultsPresenter.swift */,
 				E02A1FD91FE00CD100D730FB /* SearchCell.swift */,
 				E02A1FDA1FE00CD100D730FB /* SearchCell.xib */,
+				E02A1FDF1FE030A100D730FB /* SearchResultPresenter.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -145,7 +150,8 @@
 		E02A1FCC1FDFE5A000D730FB /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				E02A1FD71FE000F300D730FB /* SearchResult.swift */,
+				E02A1FE11FE0390D00D730FB /* DiscographyResult.swift */,
+				E02A1FE31FE0467400D730FB /* Page.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -304,17 +310,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0CD56851FDF163100768E50 /* CoreAssembly.swift in Sources */,
+				E02A1FE21FE0390D00D730FB /* DiscographyResult.swift in Sources */,
 				E0CD566C1FDF113400768E50 /* AppDelegate.swift in Sources */,
 				E0CD56871FDF172000768E50 /* Endpoint.swift in Sources */,
 				E0CD56891FDF172A00768E50 /* WebService.swift in Sources */,
 				E02A1FDB1FE00CD100D730FB /* SearchCell.swift in Sources */,
+				E02A1FE41FE0467400D730FB /* Page.swift in Sources */,
 				E02A1FD21FDFE71A00D730FB /* SearchResultsViewController.swift in Sources */,
 				E02A1FD61FDFFE2300D730FB /* SearchResultsRepository.swift in Sources */,
 				E02A1FBD1FDFDFB400D730FB /* FeaturedViewController.swift in Sources */,
 				E0CD568B1FDF178300768E50 /* WebServiceAssembly.swift in Sources */,
 				E02A1FD41FDFE72A00D730FB /* SearchResultsPresenter.swift in Sources */,
 				E02A1FCE1FDFE5C300D730FB /* SearchAssembly.swift in Sources */,
-				E02A1FD81FE000F300D730FB /* SearchResult.swift in Sources */,
 				E02A1FC41FDFDFE100D730FB /* FeaturedAssembly.swift in Sources */,
 				E0CD56831FDF153E00768E50 /* AppAssembly.swift in Sources */,
 				E0CD568D1FDF1C0400768E50 /* Artist.swift in Sources */,
@@ -322,6 +329,7 @@
 				E0CD56911FDF1C2000768E50 /* Album.swift in Sources */,
 				E02A1FC71FDFE0BA00D730FB /* FeaturedRepository.swift in Sources */,
 				E02A1FD01FDFE67000D730FB /* SearchNavigator.swift in Sources */,
+				E02A1FE01FE030A100D730FB /* SearchResultPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

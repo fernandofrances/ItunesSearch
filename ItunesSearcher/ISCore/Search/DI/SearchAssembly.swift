@@ -22,6 +22,10 @@ final class SearchAssembly {
         return SearchResultsPresenter(repository: repository())
     }
     
+    func resultPresenter() -> SearchResultPresenter {
+        return SearchResultPresenter()
+    }
+    
     func repository() -> SearchResultsRepositoryProtocol{
         return SearchResultsRepository(webService: webServiceAssembly.webService)
     }
@@ -30,6 +34,6 @@ final class SearchAssembly {
 
 extension SearchAssembly: SearchResultsViewControllerProvider{
     func searchResultsViewController() -> SearchResultsViewController {
-        return SearchResultsViewController(presenter: presenter())
+        return SearchResultsViewController(searchResultsPresenter: presenter(), searchResultPresenter: resultPresenter())
     }
 }

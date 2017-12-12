@@ -1,5 +1,5 @@
 //
-//  SearchResult.swift
+//  Page.swift
 //  ItunesSearcher
 //
 //  Created by Fernando Frances on 12/12/2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SearchResult: Decodable {
+struct Page<T:Decodable>: Decodable {
     let resultCount: Int
-    let results: [Artist]
+    let results: [T]
 }

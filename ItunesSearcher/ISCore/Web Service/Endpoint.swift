@@ -10,7 +10,7 @@ import Foundation
 
 internal enum Endpoint {
     case searchResult(query: String)
-    case discography(id:Int64)
+    case discography(id:String)
 }
 
 internal extension Endpoint {
@@ -55,11 +55,11 @@ private extension Endpoint {
         case .searchResult(let query):
             return ["term":query,
                     "entity":"musicArtist",
-                    "limit":"20",
+                    "limit":"2",
                     "country":"es",
                     "media":"music"]
         case .discography(let id):
-            return ["id":String(id),
+            return ["id":id,
                     "entity":"album"]
         }
     }

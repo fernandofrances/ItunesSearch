@@ -15,13 +15,6 @@ class SearchCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     var artist: Artist?
     
-    func refresh(artist: Artist) {
-        self.artist = artist
-        self.title.text = artist.artistName
-        self.genre.text = artist.primaryGenreName
-    }
-    
-    
     class func identifier() -> String {
         return "SearchCellID"
     }

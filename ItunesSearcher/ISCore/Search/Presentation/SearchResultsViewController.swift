@@ -15,14 +15,15 @@ protocol SearchResultsViewControllerProvider: class {
 class SearchResultsViewController: UITableViewController {
 
     // MARK: - Properties
-    
-    private let presenter: SearchResultsPresenter
+    private let searchResultPresenter :  SearchResultPresenter
+    private let searchResultsPresenter: SearchResultsPresenter
     private var results: [Artist] = []
     
     //MARK: - Initialization
     
-    init(presenter: SearchResultsPresenter){
-        self.presenter = presenter
+    init(searchResultsPresenter: SearchResultsPresenter, searchResultPresenter: SearchResultPresenter){
+        self.searchResultsPresenter = searchResultsPresenter
+        self.searchResultPresenter = searchResultPresenter
         super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
     }
     
@@ -34,7 +35,7 @@ class SearchResultsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.view = self
+        searchResultsPresenter.view = self
         setUpView()
     }
 
@@ -56,7 +57,7 @@ class SearchResultsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SearchCell = tableView.dequeueReusableCell(withIdentifier: SearchCell.identifier(), for: indexPath) as! SearchCell
         let artist = results[indexPath.row]
-        cell.refresh(artist: artist)
+        searchResultPresenter.present(artist: artist, in: cell)
         return cell
     }
 
@@ -71,7 +72,10 @@ extension SearchResultsViewController {
 
 extension SearchResultsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        presenter.search(with: searchController.searchBar.text ?? "")
+        let searchText = searchController.searchBar.text ?? ""
+        if searchText.count > 0 {
+            searchResultsPresenter.search(with: searchText)
+        }
     }
 }
 
