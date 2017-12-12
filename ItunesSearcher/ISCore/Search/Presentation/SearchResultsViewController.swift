@@ -55,8 +55,21 @@ class SearchResultsViewController: UITableViewController {
 
 }
 
+extension SearchResultsViewController {
+    func setUpView() {
+        //Register table view cells
+    }
+}
+
 extension SearchResultsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        //
+        print("search: \(searchController.searchBar.text ?? "")")
+        presenter.search(with: searchController.searchBar.text ?? "")
+    }
+}
+
+extension SearchResultsViewController: SearchView {
+    func update(with artists: [Artist]) {
+        
     }
 }

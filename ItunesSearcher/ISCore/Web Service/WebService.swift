@@ -13,12 +13,19 @@ final internal class WebService {
     private let baseURL = URL(string:"https://itunes.apple.com/search?")!
     private let decoder = JSONDecoder()
     
-    func load(from endpoint:Endpoint, onSuccess: @escaping ([Artist]) -> Void, onError: @escaping (Error) -> Void) -> Void {
+    func load(from endpoint:Endpoint, onSuccess: @escaping (SearchResult) -> Void, onError: @escaping (Error) -> Void) -> Void {
         let decoder = self.decoder
         let request = endpoint.request(with: baseURL)
         let task = session.dataTask(with: request.url!) { (data: Data?, response: URLResponse?, error: Error?) in
             OperationQueue.main.addOperation {
-                //Decode de data and call onError or onSuccess
+                if error == nil {
+                    if let result = try? decoder.decode(SearchResult.self, from: data!){ onSuccess(result)
+                    }else{
+                        print("Error Decoding: \(String(data: data!, encoding: .utf8)!)")
+                    }
+                }else{
+                    print("Decoding Error")
+                }
             }
         }
         task.resume()

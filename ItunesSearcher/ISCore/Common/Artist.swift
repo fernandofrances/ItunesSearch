@@ -9,7 +9,13 @@
 import Foundation
 
 struct Artist: Decodable {
-    let name: String
-    let genre: String
-    let album: [Album]?
+    let artistName: String
+//    let wrapperType: String
+//    let artistType: String
+//    let artistID: Int64
+//    let artistLinkUrl: String
+//    let amgArtistId: Int64
+//    let primaryGenreId: Int
+//    let primaryGenreName: String
+    //let album: [Album]?
 }

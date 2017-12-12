@@ -19,6 +19,7 @@ internal extension Endpoint {
         components.queryItems = self.parameters.map(URLQueryItem.init)
         var request = URLRequest(url: components.url!)
         request.httpMethod = method.rawValue
+        print("Request URL: \(request.url!)")
         return request
     }
 }
@@ -50,7 +51,11 @@ private extension Endpoint {
     var parameters: [String: String] {
         switch self {
         case .searchResult(let query):
-            return ["term":query]
+            return ["term":query,
+                    "country":"es",
+                    "media":"music",
+                    "entity":"musicArtist",
+                    "limit":"1"]
         case .discography(let artist):
             return ["term":artist]
         }

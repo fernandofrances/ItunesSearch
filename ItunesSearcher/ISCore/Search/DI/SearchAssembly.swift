@@ -19,7 +19,11 @@ final class SearchAssembly {
     }
     
     func presenter() -> SearchResultsPresenter {
-        return SearchResultsPresenter()
+        return SearchResultsPresenter(repository: repository())
+    }
+    
+    func repository() -> SearchResultsRepositoryProtocol{
+        return SearchResultsRepository(webService: webServiceAssembly.webService)
     }
     
 }
