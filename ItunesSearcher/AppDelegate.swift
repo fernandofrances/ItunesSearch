@@ -14,7 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let appAsssembly = AppAssembly()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let initalViewController = appAsssembly.coreAssembly.featuredAssembly.viewController()
         appAsssembly.window.rootViewController = appAsssembly.navigationController
+        appAsssembly.navigationController.pushViewController(initalViewController, animated: false)
         appAsssembly.window.makeKeyAndVisible()
         return true
     }
