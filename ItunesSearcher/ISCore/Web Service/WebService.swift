@@ -10,7 +10,7 @@ import Foundation
 
 final internal class WebService {
     private let session = URLSession(configuration: .default)
-    private let baseURL = URL(string:"https://itunes.apple.com/search?")!
+    private let baseURL = URL(string:"https://itunes.apple.com/")!
     private let decoder = JSONDecoder()
     
     func load(from endpoint:Endpoint, onSuccess: @escaping (SearchResult) -> Void, onError: @escaping (Error) -> Void) -> Void {

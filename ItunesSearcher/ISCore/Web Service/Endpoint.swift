@@ -10,13 +10,15 @@ import Foundation
 
 internal enum Endpoint {
     case searchResult(query: String)
-    case discography(artist:String)
+    case discography(id:Int64)
 }
 
 internal extension Endpoint {
     func request(with baseURL: URL) -> URLRequest {
-        var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)!
+        let url = baseURL.appendingPathComponent(path)
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
         components.queryItems = self.parameters.map(URLQueryItem.init)
+        
         var request = URLRequest(url: components.url!)
         request.httpMethod = method.rawValue
         print("Request URL: \(request.url!)")
@@ -42,9 +44,9 @@ private extension Endpoint {
     var path: String {
         switch self {
         case .searchResult:
-            return ""
+            return "search"
         case .discography:
-            return ""
+            return "lookup"
         }
     }
     
@@ -52,12 +54,14 @@ private extension Endpoint {
         switch self {
         case .searchResult(let query):
             return ["term":query,
-                    "country":"es",
-                    "media":"music",
                     "entity":"musicArtist",
-                    "limit":"20"]
-        case .discography(let artist):
-            return ["term":artist]
+                    "limit":"20",
+                    "country":"es",
+                    "media":"music"]
+        case .discography(let id):
+            return ["id":String(id),
+                    "entity":"album"]
         }
     }
+    
 }

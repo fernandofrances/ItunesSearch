@@ -22,7 +22,6 @@ final class SearchResultsRepository: SearchResultsRepositoryProtocol {
     
     func searchResults(withQuery query: String, onResults: @escaping ([Artist]) -> Void) {
         webService.load(from: .searchResult(query: query), onSuccess: { (result: SearchResult) in
-            print("Search Repository state: \(result.results)")
             onResults(result.results)
         }) { (error: Error) in
             print(error)
