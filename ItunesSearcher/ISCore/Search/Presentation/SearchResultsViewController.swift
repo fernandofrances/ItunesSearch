@@ -17,6 +17,7 @@ class SearchResultsViewController: UITableViewController {
     // MARK: - Properties
     private let searchResultPresenter :  SearchResultPresenter
     private let searchResultsPresenter: SearchResultsPresenter
+    private var timer = Timer()
     private var results: [Artist] = []
     
     //MARK: - Initialization
@@ -66,15 +67,21 @@ class SearchResultsViewController: UITableViewController {
 
 extension SearchResultsViewController {
     func setUpView() {
-        tableView.register(UINib(nibName: "SearchCell", bundle: nil), forCellReuseIdentifier: SearchCell.identifier())
+        tableView.register(UINib(nibName: "SearchCell", bundle: nil),
+                           forCellReuseIdentifier: SearchCell.identifier())
     }
 }
 
 extension SearchResultsViewController: UISearchResultsUpdating {
+    
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text ?? ""
         if searchText.count > 0 {
-            searchResultsPresenter.search(with: searchText)
+            timer.invalidate()
+            timer = Timer(timeInterval: 0.5, repeats: false, block: { _ in
+                self.searchResultsPresenter.search(with: searchText)
+            })
+            RunLoop.main.add(timer, forMode: .commonModes)
         }
     }
 }

@@ -23,12 +23,11 @@ final class SearchResultsPresenter {
 
 extension SearchResultsPresenter {
     func search(with query: String){
-        repository.searchResults(withQuery:query.replacingOccurrences(of: " ", with: "+")) { (artists: [Artist]) in
+        let apiQuery = query.replacingOccurrences(of: " ", with: "+")
+        repository.searchResults(withQuery:apiQuery) { (artists: [Artist]) in
             self.view?.update(with: artists)
             artists.forEach { artist in
-                self.repository.loadDiscography(forArtist: String(artist.artistId), onResults: { (albums: [DiscographyResult]) in
-                     print("\(artist.artistName) Discography:\n \(albums)")
-                })
+            
             }
         }
     }
