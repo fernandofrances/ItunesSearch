@@ -62,6 +62,12 @@ class DetailViewController: UITableViewController {
         
         return cell
     }
+    
+    // MARK: - TableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
 }
 

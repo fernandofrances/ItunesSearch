@@ -30,6 +30,6 @@ final class DetailPresenter {
 extension DetailPresenter {
     func update() {
         view?.title = repository.artistToShow().artistName
-        view?.update(with: repository.artistToShow().discography!)
+        view?.update(with: repository.artistToShow().discography ?? [])
     }
 }

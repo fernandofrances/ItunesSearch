@@ -20,17 +20,17 @@ final class SearchResultPresenter{
     }
     
     func present(discographyResult: [DiscographyResult], in cell: SearchCell){
-        if discographyResult.count > 2 {cell.more.isHidden = false}
+        if discographyResult.count > 0 {cell.more.isHidden = false}
         switch discographyResult[0] {
         case let .album(album):
-            cell.firstAlbum.kf.setImage(with: URL(string:album.artworkUrl100))
+            cell.firstAlbum.kf.setImage(with: URL(string:album.artworkUrl100), placeholder: #imageLiteral(resourceName: "defaultDark"))
         default:
             print("not an album")
         }
         if discographyResult.count>1{
             switch discographyResult[1]{
             case let .album(album):
-                cell.secondAlbum.kf.setImage(with: URL(string: album.artworkUrl100))
+                cell.secondAlbum.kf.setImage(with: URL(string: album.artworkUrl100), placeholder: #imageLiteral(resourceName: "defaultLight"))
             default:
                 print("not an album")
             }
