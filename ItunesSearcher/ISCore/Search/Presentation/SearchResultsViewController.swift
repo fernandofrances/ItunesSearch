@@ -59,6 +59,9 @@ class SearchResultsViewController: UITableViewController {
         let cell: SearchCell = tableView.dequeueReusableCell(withIdentifier: SearchCell.identifier(), for: indexPath) as! SearchCell
         let artist = results[indexPath.row]
         searchResultPresenter.present(artist: artist, in: cell)
+        if artist.discography != nil {
+            searchResultPresenter.present(discographyResult: artist.discography!, in: cell)
+        }
         return cell
     }
 
@@ -87,8 +90,15 @@ extension SearchResultsViewController: UISearchResultsUpdating {
 }
 
 extension SearchResultsViewController: SearchView {
+    func update(with albums: [DiscographyResult], at index: Int) {
+        results[index].discography = albums
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)],
+                             with: .fade)
+    }
+    
     func update(with artists: [Artist]) {
         results = artists
         tableView.reloadData()
     }
+    
 }

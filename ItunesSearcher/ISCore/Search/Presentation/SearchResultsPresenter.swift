@@ -10,6 +10,7 @@ import Foundation
 
 protocol SearchView: class {
     func update(with artists: [Artist])
+    func update(with albums: [DiscographyResult], at index: Int)
 }
 
 final class SearchResultsPresenter {
@@ -26,9 +27,21 @@ extension SearchResultsPresenter {
         let apiQuery = query.replacingOccurrences(of: " ", with: "+")
         repository.searchResults(withQuery:apiQuery) { (artists: [Artist]) in
             self.view?.update(with: artists)
-            artists.forEach { artist in
-            
-            }
+            self.lookUpDiscographyForArtists(artists: artists)
+           
+        }
+    }
+    
+    func lookUpDiscographyForArtists(artists: [Artist]) {
+        for i in 0..<artists.count {
+            self.repository.loadDiscography(forArtist: String(artists[i].artistId),
+                                            onResults: { (results: [DiscographyResult]) in
+                                                if(results.count > 1){
+                                                    var albums = results
+                                                    albums.removeFirst()
+                                                    self.view?.update(with: albums, at: i)
+                                                }
+            })
         }
     }
 }

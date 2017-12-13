@@ -19,43 +19,66 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olu-dB-put">
-                        <rect key="frame" x="16" y="11" width="288" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olu-dB-put">
+                        <rect key="frame" x="15" y="10" width="288" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist music genre" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I50-pf-wHu">
-                        <rect key="frame" x="172" y="11" width="132" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultLight" translatesAutoresizingMaskIntoConstraints="NO" id="uiv-78-DP7">
+                        <rect key="frame" x="100" y="69" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="hUv-G1-ogg"/>
+                            <constraint firstAttribute="width" constant="70" id="o1l-43-XeS"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultDark" translatesAutoresizingMaskIntoConstraints="NO" id="ySe-SO-tph">
+                        <rect key="frame" x="15" y="69" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="4Ps-uk-nWH"/>
+                            <constraint firstAttribute="width" constant="70" id="bl4-Hn-OKA"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G22-Jv-R89">
+                        <rect key="frame" x="15" y="40" width="288" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="0.47772894965277779" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.47772894970000002" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uiv-78-DP7">
-                        <rect key="frame" x="103" y="69" width="70" height="70"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySe-SO-tph">
-                        <rect key="frame" x="16" y="69" width="70" height="70"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Discography" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G22-Jv-R89">
-                        <rect key="frame" x="16" y="40" width="288" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See more" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgy-ff-VKP">
+                        <rect key="frame" x="247.5" y="123" width="57.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.47772894970000002" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="sgy-ff-VKP" secondAttribute="trailing" constant="15" id="23A-B8-195"/>
+                    <constraint firstAttribute="trailing" secondItem="G22-Jv-R89" secondAttribute="trailing" constant="17" id="2oq-hm-Ovf"/>
+                    <constraint firstItem="G22-Jv-R89" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="BxQ-rg-Kb1"/>
+                    <constraint firstItem="uiv-78-DP7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="100" id="CVu-Fy-j7k"/>
+                    <constraint firstItem="ySe-SO-tph" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="69" id="RVY-2A-WHR"/>
+                    <constraint firstItem="olu-dB-put" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="TGb-6w-jnc"/>
+                    <constraint firstAttribute="bottom" secondItem="sgy-ff-VKP" secondAttribute="bottom" constant="10" id="U1f-5v-le3"/>
+                    <constraint firstItem="uiv-78-DP7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="69" id="UeF-AF-MPa"/>
+                    <constraint firstItem="G22-Jv-R89" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="ZVf-j4-GLG"/>
+                    <constraint firstItem="olu-dB-put" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="a4z-FU-37m"/>
+                    <constraint firstAttribute="trailing" secondItem="olu-dB-put" secondAttribute="trailing" constant="17" id="tTF-m6-812"/>
+                    <constraint firstItem="ySe-SO-tph" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="yfM-bJ-gZB"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="genre" destination="I50-pf-wHu" id="Lih-pV-kyj"/>
+                <outlet property="firstAlbum" destination="ySe-SO-tph" id="gMp-G4-q7A"/>
+                <outlet property="more" destination="sgy-ff-VKP" id="Ts6-7w-W9g"/>
+                <outlet property="secondAlbum" destination="uiv-78-DP7" id="2vM-Xf-pTj"/>
                 <outlet property="title" destination="olu-dB-put" id="ugt-F3-BsM"/>
             </connections>
             <point key="canvasLocation" x="34" y="171"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="defaultDark" width="102" height="100"/>
+        <image name="defaultLight" width="102" height="100"/>
+    </resources>
 </document>

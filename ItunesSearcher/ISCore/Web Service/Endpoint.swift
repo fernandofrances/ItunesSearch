@@ -55,7 +55,7 @@ private extension Endpoint {
         case .searchResult(let query):
             return ["term":query,
                     "entity":"musicArtist",
-                    "limit":"2",
+                    "limit":"20",
                     "country":"es",
                     "media":"music"]
         case .discography(let id):

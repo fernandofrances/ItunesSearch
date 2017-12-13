@@ -13,6 +13,6 @@ struct Artist: Decodable {
     let artistName: String
     let artistId: Int64
     let artistLinkUrl: String
-    let primaryGenreName: String
-    let discography: [Album]?
+    let primaryGenreName: String?
+    var discography: [DiscographyResult]?
 }

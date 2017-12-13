@@ -12,7 +12,7 @@ struct Album : Decodable {
     let wrapperType: String
     let collectionName: String
     //let releaseDate: Date
-    let artworkUrl60: String
+    let artworkUrl100: String
     let artistName: String
     let primaryGenreName: String
 }
