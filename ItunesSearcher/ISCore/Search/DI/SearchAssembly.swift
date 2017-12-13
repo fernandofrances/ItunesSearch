@@ -10,8 +10,10 @@ import Foundation
 
 final class SearchAssembly {
     private let webServiceAssembly: WebServiceAssembly
-    init(webServiceAssembly: WebServiceAssembly){
+    private let detailAssembly: DetailAsembly
+    init(webServiceAssembly: WebServiceAssembly, detailAssembly: DetailAsembly){
         self.webServiceAssembly = webServiceAssembly
+        self.detailAssembly = detailAssembly
     }
     
     func searchNavigator() -> SearchNavigator {
@@ -19,7 +21,7 @@ final class SearchAssembly {
     }
     
     func presenter() -> SearchResultsPresenter {
-        return SearchResultsPresenter(repository: repository())
+        return SearchResultsPresenter(repository: repository(), detailNavigator: detailAssembly.detailNavigator())
     }
     
     func resultPresenter() -> SearchResultPresenter {

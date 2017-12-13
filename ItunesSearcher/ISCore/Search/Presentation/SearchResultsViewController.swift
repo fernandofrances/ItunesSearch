@@ -65,6 +65,13 @@ class SearchResultsViewController: UITableViewController {
         return cell
     }
 
+    // MARK: - Table view Delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let artist = results[indexPath.row]
+        searchResultsPresenter.didSelect(artist: artist)
+    }
 
 }
 

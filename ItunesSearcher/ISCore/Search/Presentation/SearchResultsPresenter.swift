@@ -15,10 +15,16 @@ protocol SearchView: class {
 
 final class SearchResultsPresenter {
     private let repository:  SearchResultsRepositoryProtocol
+    private let detailNavigator: DetailNavigator
     weak var view: SearchView?
     
-    init(repository: SearchResultsRepositoryProtocol){
+    init(repository: SearchResultsRepositoryProtocol, detailNavigator: DetailNavigator){
         self.repository = repository
+        self.detailNavigator = detailNavigator
+    }
+    
+    func didSelect(artist: Artist) {
+        detailNavigator.showDetail(artist: artist)
     }
 }
 
