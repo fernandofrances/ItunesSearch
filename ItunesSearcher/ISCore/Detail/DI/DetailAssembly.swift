@@ -10,9 +10,11 @@ import UIKit
 
 final class DetailAsembly {
     private let navigationController: UINavigationController
+    private let webServiceAssembly: WebServiceAssembly
     
-    init(navigationController: UINavigationController){
+    init(navigationController: UINavigationController, webServiceAssembly: WebServiceAssembly){
         self.navigationController = navigationController
+        self.webServiceAssembly = webServiceAssembly
     }
     
     private func presenter(artist: Artist) -> DetailPresenter {
@@ -20,7 +22,7 @@ final class DetailAsembly {
     }
     
     private func albumPresenter() -> AlbumPresenter {
-        return AlbumPresenter()
+        return AlbumPresenter(dateFormatter: webServiceAssembly.dateFormatter)
     }
     
     private func repository(artist: Artist) -> DetailRepository {
