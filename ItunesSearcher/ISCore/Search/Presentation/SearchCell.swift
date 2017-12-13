@@ -19,7 +19,7 @@ class SearchCell: UITableViewCell {
         return "SearchCellID"
     }
     class func height() -> Float {
-        return 100
+        return 150
     }
     
 }
