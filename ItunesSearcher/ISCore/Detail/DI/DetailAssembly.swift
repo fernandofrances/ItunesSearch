@@ -22,11 +22,11 @@ final class DetailAsembly {
     }
     
     private func albumPresenter() -> AlbumPresenter {
-        return AlbumPresenter(dateFormatter: webServiceAssembly.dateFormatter)
+        return AlbumPresenter()
     }
     
     private func repository(artist: Artist) -> DetailRepository {
-        return DetailRepository(artist: artist)
+        return DetailRepository(artist: artist,dateFormatter: webServiceAssembly.dateFormatter)
     }
     
     public func detailNavigator() -> DetailNavigator {

@@ -40,7 +40,7 @@ extension SearchResultsPresenter {
     
     func lookUpDiscographyForArtists(artists: [Artist]) {
         for i in 0..<artists.count {
-            self.repository.loadDiscography(forArtist: String(artists[i].artistId),
+            repository.loadDiscography(forArtist: String(artists[i].artistId),
                                             onResults: { (results: [DiscographyResult]) in
                                                 if(results.count > 1){
                                                     var albums = results

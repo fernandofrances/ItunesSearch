@@ -10,7 +10,7 @@ import Foundation
 
 protocol DetailView: class{
     var title: String? { get set }
-    func update(with albums: [DiscographyResult])
+    func update(with albums: [Album])
 }
 
 final class DetailPresenter {
@@ -30,6 +30,6 @@ final class DetailPresenter {
 extension DetailPresenter {
     func update() {
         view?.title = repository.artistToShow().artistName
-        view?.update(with: repository.artistToShow().discography ?? [])
+        view?.update(with: repository.artistAlbums())
     }
 }

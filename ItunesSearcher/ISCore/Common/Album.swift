@@ -15,4 +15,5 @@ struct Album : Decodable {
     let artworkUrl100: String
     let artistName: String
     let primaryGenreName: String
+    var releaseYear: Int?
 }

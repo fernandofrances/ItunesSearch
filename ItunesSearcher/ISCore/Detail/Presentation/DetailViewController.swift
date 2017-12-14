@@ -15,7 +15,7 @@ class DetailViewController: UITableViewController {
 
     private let presenter: DetailPresenter
     private let albumPresenter: AlbumPresenter
-    private var albums: [DiscographyResult] = []
+    private var albums: [Album] = []
     
     // Mark: - Initialization
     init(presenter: DetailPresenter, albumPresenter: AlbumPresenter){
@@ -52,14 +52,8 @@ class DetailViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: AlbumCell = tableView.dequeueReusableCell(withIdentifier: AlbumCell.cellId(), for: indexPath) as! AlbumCell
-        let discographyResult = albums[indexPath.row]
-        switch discographyResult {
-        case let .album(album):
-            albumPresenter.present(album: album, in: cell)
-        default:
-            print("Not an album")
-        }
-        
+        let album = albums[indexPath.row]
+        albumPresenter.present(album: album, in: cell)
         return cell
     }
     
@@ -78,7 +72,7 @@ private extension DetailViewController{
 }
 
 extension DetailViewController: DetailView {
-    func update(with albums: [DiscographyResult]) {
+    func update(with albums: [Album]) {
         self.albums = albums
         tableView.reloadData()
     }
