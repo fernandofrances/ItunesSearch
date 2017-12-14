@@ -66,3 +66,10 @@ Notice that the first element from the *results* array is the artist and the res
 
 #### Detail View
 Tapping a cell from the searchController of an artists with albums available on the Itunes Store leads you to this detal view that showcases all albums from the artists selected sorted by year.
+
+#### Pods
+[KingFisher](https://github.com/onevcat/Kingfisher) library is used for downloading and catching images.
+
+```
+pod 'Kingfisher', '~> 4.0'
+```
